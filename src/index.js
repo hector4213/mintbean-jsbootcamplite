@@ -8,9 +8,9 @@ import App from './App'
 const theme = createMuiTheme({
 	palette: {
 		primary: {
-			main: '	#FFFF00',
+			main: '#FFFF00',
 		},
-		type: 'light',
+		type: 'dark',
 	},
 	typography: {
 		fontFamily: ['Roboto', 'Open Sans'].join(','),
