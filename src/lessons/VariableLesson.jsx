@@ -1,7 +1,6 @@
 import { useState } from 'react'
 import { Container } from '@material-ui/core'
 import { TextField } from '@material-ui/core'
-import VM from 'vm2'
 
 const VariableLesson = () => {
 	const [code, setCode] = useState('')
