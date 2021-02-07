@@ -1,8 +1,10 @@
+import { Container } from '@material-ui/core'
+
 const FunctionsLesson = () => {
 	return (
-		<div>
+		<Container>
 			<h1>Im the functions lesson</h1>
-		</div>
+		</Container>
 	)
 }
 
