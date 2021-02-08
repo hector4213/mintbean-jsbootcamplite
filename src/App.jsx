@@ -8,6 +8,7 @@ import HomePage from './HomePage'
 import VariableLesson from './lessons/VariableLesson'
 import FunctionsLesson from './lessons/FunctionsLesson'
 import ArraysLesson from './lessons/ArraysLesson'
+import { TextField } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 
@@ -26,6 +27,12 @@ const useStyles = makeStyles((theme) => ({
 const App = () => {
 	const classes = useStyles()
 	const [started, setStarted] = useState(false)
+	const [user, setUser] = useState('')
+
+	const onNameChange = (e) => {
+		setUser(e.target.value)
+		console.log(user)
+	}
 
 	const startApp = () => {
 		setStarted(true)
@@ -41,7 +48,7 @@ const App = () => {
 								<HomePage />
 							</Route>
 							<Route path='/variables'>
-								<VariableLesson />
+								<VariableLesson user={user} />
 							</Route>
 							<Route path='/functions'>
 								<FunctionsLesson />
@@ -60,6 +67,12 @@ const App = () => {
 		<div className={classes.start}>
 			<Box>
 				<h1>Ready to learn some JS? Click below and</h1>
+
+				<TextField
+					onChange={onNameChange}
+					value={user}
+					placeholder='Enter your name'
+				/>
 				<StartButton text={'Lets get started'} onClick={startApp} />
 			</Box>
 		</div>
