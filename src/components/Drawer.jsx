@@ -63,9 +63,6 @@ const Drawer = () => {
 				anchor='left'
 				open={isOpen}
 				onClose={handleDrawerToggle}
-				classes={{
-					paper: classes.drawerPaper,
-				}}
 			>
 				<MenuList>{makeMenuItems()}</MenuList>
 			</MUIDrawer>
