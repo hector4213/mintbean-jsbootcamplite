@@ -9,6 +9,7 @@ import {
 	MenuItem,
 } from '@material-ui/core'
 import PointsProgress from './PointsProgress'
+import InfoText from './InfoText'
 
 const menu = [
 	{ text: 'Home', icon: '', path: '/' },
@@ -18,7 +19,7 @@ const menu = [
 ]
 const useStyles = makeStyles((theme) => ({
 	root: {
-		width: 250,
+		width: 200,
 	},
 	grow: {
 		flexGrow: 1,
@@ -30,7 +31,7 @@ const useStyles = makeStyles((theme) => ({
 		},
 	},
 	drawerPaper: {
-		width: 250,
+		width: 200,
 	},
 	drawerContainer: {
 		overflow: 'auto',
@@ -45,7 +46,7 @@ const useStyles = makeStyles((theme) => ({
 		display: 'flex',
 		flexDirection: 'column',
 		alignItems: 'center',
-		justifyContent: 'space-around',
+		justifyContent: 'center',
 		height: '100%',
 	},
 }))
@@ -68,19 +69,22 @@ const Drawer = ({ userPoints }) => {
 	}
 
 	return (
-		<div className={classes.root}>
-			<MUIDrawer
-				variant='permanent'
-				anchor='left'
-				open={isOpen}
-				onClose={handleDrawerToggle}
-			>
-				<MenuList>{makeMenuItems()}</MenuList>
-				<div className={classes.progress}>
-					<PointsProgress userPoints={userPoints} />
-				</div>
-			</MUIDrawer>
-		</div>
+		<MUIDrawer
+			variant='persistent'
+			anchor='left'
+			open={isOpen}
+			onClose={handleDrawerToggle}
+			className={classes.root}
+			classes={{
+				paper: classes.drawerPaper,
+			}}
+		>
+			<MenuList>{makeMenuItems()}</MenuList>
+			<div className={classes.progress}>
+				<InfoText variant='caption'>Your Progress</InfoText>
+				<PointsProgress userPoints={userPoints} />
+			</div>
+		</MUIDrawer>
 	)
 }
 
