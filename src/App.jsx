@@ -1,7 +1,7 @@
 import React from 'react'
 import './App.css'
 import { useState } from 'react'
-import StartButton from './components/StartButton'
+import BaseBtn from './components/BaseBtn'
 import Box from '@material-ui/core/Box'
 import Layout from './components/Layout'
 import HomePage from './HomePage'
@@ -73,7 +73,7 @@ const App = () => {
 					value={user}
 					placeholder='Enter your name'
 				/>
-				<StartButton text={'Lets get started'} onClick={startApp} />
+				<BaseBtn text={'Lets get started'} onClick={startApp} />
 			</Box>
 		</div>
 	)
