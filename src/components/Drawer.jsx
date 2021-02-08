@@ -5,8 +5,10 @@ import {
 	Drawer as MUIDrawer,
 	MenuList,
 	ListItemText,
+	ListItem,
 	MenuItem,
 } from '@material-ui/core'
+import PointsProgress from './PointsProgress'
 
 const menu = [
 	{ text: 'Home', icon: '', path: '/' },
@@ -39,16 +41,25 @@ const useStyles = makeStyles((theme) => ({
 			display: 'none',
 		},
 	},
+	progress: {
+		display: 'flex',
+		flexDirection: 'column',
+		alignItems: 'center',
+		justifyContent: 'space-around',
+		height: '100%',
+	},
 }))
 
-const Drawer = () => {
+const Drawer = ({ userPoints }) => {
 	const [isOpen, setIsOpen] = useState(true)
 	const classes = useStyles()
 
 	const makeMenuItems = () =>
 		menu.map((item) => (
 			<MenuItem component={Link} to={item.path}>
-				<ListItemText> {item.text}</ListItemText>
+				<MenuItem>
+					<ListItemText> {item.text}</ListItemText>
+				</MenuItem>
 			</MenuItem>
 		))
 
@@ -65,6 +76,9 @@ const Drawer = () => {
 				onClose={handleDrawerToggle}
 			>
 				<MenuList>{makeMenuItems()}</MenuList>
+				<div className={classes.progress}>
+					<PointsProgress userPoints={userPoints} />
+				</div>
 			</MUIDrawer>
 		</div>
 	)
