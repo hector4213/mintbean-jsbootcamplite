@@ -1,9 +1,21 @@
 import React from 'react'
 import { CircularProgress, Box, Typography } from '@material-ui/core/'
+import { makeStyles } from '@material-ui/core/styles'
+
+const useStyles = makeStyles((theme) => ({
+	container: {
+		marginTop: '10px',
+	},
+}))
 
 const PointsProgress = ({ userPoints }) => {
+	const classes = useStyles()
 	return (
-		<Box position='relative' display='inline-flex'>
+		<Box
+			position='relative'
+			display='inline-flex'
+			className={classes.container}
+		>
 			<CircularProgress
 				size={100}
 				color='primary'
