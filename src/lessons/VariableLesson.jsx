@@ -16,10 +16,15 @@ const VariableLesson = ({ user, userPoints, setUserPoints }) => {
 		setLesson((lesson) => ({ ...lesson, lessonType: 'action' }))
 	}
 
+	const backToTheory = () => {
+		setLesson((lesson) => ({ ...lesson, lessonType: 'theory' }))
+	}
+
 	const completeLesson = () => {
 		if (!lesson.completed) {
 			setLesson((lesson) => ({ ...lesson, completed: true }))
 			setUserPoints((prevPoints) => prevPoints + 20)
+			setOutput('Correct!')
 		} else {
 			setOutput('You have already completed this lesson! Try another one')
 		}
@@ -27,7 +32,6 @@ const VariableLesson = ({ user, userPoints, setUserPoints }) => {
 
 	const checkCodeAnswer = (codeString) => {
 		if (codeString === `let myName = "${user}"`) {
-			setOutput('correct!')
 			completeLesson()
 		}
 	}
@@ -46,7 +50,7 @@ const VariableLesson = ({ user, userPoints, setUserPoints }) => {
 					setCode={setCode}
 					output={output}
 					checkCodeAnswer={checkCodeAnswer}
-					setLesson={setLesson}
+					backToTheory={backToTheory}
 				/>
 			)}
 		</Container>
