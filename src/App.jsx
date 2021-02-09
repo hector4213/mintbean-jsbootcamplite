@@ -28,13 +28,14 @@ const App = () => {
 	const classes = useStyles()
 	const [started, setStarted] = useState(false)
 	const [user, setUser] = useState('')
+	const [userPoints, setUserPoints] = useState(0)
 
 	const onNameChange = (e) => {
 		setUser(e.target.value)
-		console.log(user)
 	}
 
 	const startApp = () => {
+		//TODO: validation for username
 		setStarted(true)
 	}
 	//drawers will be the links that change the page in layout
@@ -43,12 +44,16 @@ const App = () => {
 			<Router>
 				<div className={classes.root}>
 					<Switch>
-						<Layout>
+						<Layout userPoints={userPoints}>
 							<Route exact path='/'>
-								<HomePage />
+								<HomePage user={user} />
 							</Route>
 							<Route path='/variables'>
-								<VariableLesson user={user} />
+								<VariableLesson
+									user={user}
+									userPoints={userPoints}
+									setUserPoints={setUserPoints}
+								/>
 							</Route>
 							<Route path='/functions'>
 								<FunctionsLesson />
