@@ -17,7 +17,13 @@ const useStyles = makeStyles((theme) => ({
 	},
 }))
 
-const VariableAction = ({ code, setCode, checkCodeAnswer, output, goBack }) => {
+const VariableAction = ({
+	code,
+	setCode,
+	checkCodeAnswer,
+	output,
+	backToTheory,
+}) => {
 	const classes = useStyles()
 
 	return (
@@ -54,7 +60,7 @@ const VariableAction = ({ code, setCode, checkCodeAnswer, output, goBack }) => {
 				>
 					<BaseBtn
 						text={'Back to Theory'}
-						onClick={() => goBack('theory')}
+						onClick={backToTheory}
 						color={'secondary'}
 					/>
 				</Grid>
