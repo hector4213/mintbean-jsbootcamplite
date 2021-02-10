@@ -94,7 +94,9 @@ const Drawer = ({ userPoints }) => {
 			</div>
 			<MenuList>{makeMenuItems()}</MenuList>
 			<div className={classes.progress}>
-				<InfoText variant='caption'>Your Progress</InfoText>
+				<InfoText variant='caption' color={'primary'}>
+					Your Progress
+				</InfoText>
 				<PointsProgress userPoints={userPoints} />
 			</div>
 		</MUIDrawer>
