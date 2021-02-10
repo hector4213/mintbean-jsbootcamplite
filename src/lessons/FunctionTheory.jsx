@@ -20,7 +20,7 @@ const useStyles = makeStyles((theme) => ({
 	},
 }))
 
-const FunctionTheory = () => {
+const FunctionTheory = ({ onClick }) => {
 	const classes = useStyles()
 	return (
 		<>
@@ -35,13 +35,13 @@ const FunctionTheory = () => {
 						operator. A function can include one or more parameters. For our
 						next task, we will be creating a funky function that should output
 						your name. This might be tough for some but you can do it! I'll
-						provide some excellent tried and testing resources when you hit the
+						provide some excellent tried and tested resources when you hit the
 						button below.
 					</InfoText>
 					<InfoText
 						className={classes.caption}
 						variant={'caption'}
-						color={'primary'}
+						color={'secondary'}
 					>
 						This might be tough for some but you can do it! I'll provide some
 						excellent tried and testing resources when you hit the button below
@@ -53,7 +53,7 @@ const FunctionTheory = () => {
 					</Grid>
 				</Grid>
 				<Grid item xs={12}>
-					<BaseBtn text={'Try it out!'}></BaseBtn>
+					<BaseBtn text={'Try it out!'} onClick={onClick}></BaseBtn>
 				</Grid>
 			</Grid>
 		</>
