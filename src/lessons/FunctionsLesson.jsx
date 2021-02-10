@@ -1,10 +1,64 @@
-import React from 'react'
+import React, { useState } from 'react'
+import FunctionTheory from './FunctionTheory'
+import FunctionAction from './FunctionAction'
 import { Container } from '@material-ui/core'
+import Header from '../components/Header'
 
-const FunctionsLesson = () => {
+const EXAMPLE = `// `
+
+const FunctionsLesson = ({ user, userPoints, setUserPoints }) => {
+	const [code, setCode] = useState()
+	const [output, setOutput] = useState('Im the output')
+	const [lesson, setLesson] = useState({
+		completed: false,
+		lessonType: 'theory',
+	})
+
+	const goToAction = () => {
+		setLesson((lesson) => ({ ...lesson, lessonType: 'action' }))
+	}
+
+	const backToTheory = () => {
+		setLesson((lesson) => ({ ...lesson, lessonType: 'theory' }))
+	}
+	const completeLesson = () => {
+		if (!lesson.completed) {
+			setLesson((lesson) => ({ ...lesson, completed: true }))
+			setUserPoints((prevPoints) => prevPoints + 40)
+			setOutput('Correct!')
+		} else {
+			setOutput('You have already completed this lesson! Try another one')
+		}
+	}
+	const checkCodeAnswer = () => {
+		const userCode = `${code}`
+
+		try {
+			if (eval(userCode) === 'hello') {
+				setOutput('correct!')
+				//add points here
+			}
+		} catch (error) {
+			setOutput(error.name)
+		}
+	}
 	return (
 		<Container>
-			<h1>Im the functions lesson</h1>
+			<Header variant={'h3'} align={'left'}>
+				Stay Funky with Functions!
+			</Header>
+			{lesson.lessonType === 'theory' && (
+				<FunctionTheory onClick={goToAction} />
+			)}
+			{lesson.lessonType === 'action' && (
+				<FunctionAction
+					code={code}
+					setCode={setCode}
+					backToTheory={backToTheory}
+					checkCodeAnswer={checkCodeAnswer}
+					output={output}
+				/>
+			)}
 		</Container>
 	)
 }
