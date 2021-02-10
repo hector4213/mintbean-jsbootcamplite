@@ -56,7 +56,11 @@ const App = () => {
 								/>
 							</Route>
 							<Route path='/functions'>
-								<FunctionsLesson />
+								<FunctionsLesson
+									user={user}
+									userPoints={userPoints}
+									setUserPoints={setUserPoints}
+								/>
 							</Route>
 							<Route path='/Arrays'>
 								<ArraysLesson />
