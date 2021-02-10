@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import Logo from '../assets/jslogo.png'
 import { makeStyles } from '@material-ui/core/styles'
 import { Link } from 'react-router-dom'
 import {
@@ -49,6 +50,15 @@ const useStyles = makeStyles((theme) => ({
 		justifyContent: 'center',
 		height: '100%',
 	},
+	logo: {
+		maxWidth: '75px',
+	},
+	logoContainer: {
+		display: 'flex',
+		justifyContent: 'center',
+		alignItems: 'center',
+		padding: '10px',
+	},
 }))
 
 const Drawer = ({ userPoints }) => {
@@ -79,6 +89,9 @@ const Drawer = ({ userPoints }) => {
 				paper: classes.drawerPaper,
 			}}
 		>
+			<div className={classes.logoContainer}>
+				<img className={classes.logo} src={Logo} alt='Javascript Logo' />
+			</div>
 			<MenuList>{makeMenuItems()}</MenuList>
 			<div className={classes.progress}>
 				<InfoText variant='caption'>Your Progress</InfoText>
