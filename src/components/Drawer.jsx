@@ -66,11 +66,9 @@ const Drawer = ({ userPoints }) => {
 	const classes = useStyles()
 
 	const makeMenuItems = () =>
-		menu.map((item) => (
-			<MenuItem component={Link} to={item.path}>
-				<MenuItem>
-					<ListItemText> {item.text}</ListItemText>
-				</MenuItem>
+		menu.map((item, i) => (
+			<MenuItem key={item + i} component={Link} to={item.path}>
+				<ListItemText> {item.text}</ListItemText>
 			</MenuItem>
 		))
 
