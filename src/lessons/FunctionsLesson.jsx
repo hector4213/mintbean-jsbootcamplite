@@ -6,7 +6,7 @@ import Header from '../components/Header'
 
 const FunctionsLesson = ({ user, userPoints, setUserPoints }) => {
 	const [code, setCode] = useState('')
-	const [output, setOutput] = useState('Im the output')
+	const [output, setOutput] = useState('Goodluck!')
 	const [lesson, setLesson] = useState({
 		completed: false,
 		lessonType: 'theory',
@@ -22,7 +22,11 @@ const FunctionsLesson = ({ user, userPoints, setUserPoints }) => {
 
 	const correctAnswer = () => {
 		let userCode = code
-		return eval(userCode) === user.split('').reverse().join('')
+		if (eval(userCode) === user.split('').reverse().join('')) {
+			return true
+		} else {
+			setOutput('Incorrect try again!')
+		}
 	}
 
 	const checkCodeAnswer = () => {
@@ -30,7 +34,7 @@ const FunctionsLesson = ({ user, userPoints, setUserPoints }) => {
 			if (!lesson.completed && correctAnswer()) {
 				setOutput('correct!')
 				setLesson((lesson) => ({ ...lesson, completed: true }))
-				setUserPoints((prevPoints) => prevPoints + 40)
+				setUserPoints((prevPoints) => prevPoints + 80)
 			} else {
 				setOutput('You have already completed this lesson')
 			}
@@ -54,6 +58,7 @@ const FunctionsLesson = ({ user, userPoints, setUserPoints }) => {
 					backToTheory={backToTheory}
 					checkCodeAnswer={checkCodeAnswer}
 					output={output}
+					user={user}
 				/>
 			)}
 		</Container>
