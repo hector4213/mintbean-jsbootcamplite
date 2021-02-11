@@ -94,7 +94,7 @@ const FunctionAction = ({
 							Need help?
 						</Header>
 						<BaseBtn
-							text={'See Resources'}
+							text={'MDN Documentation'}
 							color={'primary'}
 							onClick={handleClick}
 						/>
