@@ -35,7 +35,7 @@ const FunctionsLesson = ({ user, userPoints, setUserPoints }) => {
 				setOutput('correct!')
 				setLesson((lesson) => ({ ...lesson, completed: true }))
 				setUserPoints((prevPoints) => prevPoints + 80)
-			} else {
+			} else if (lesson.completed) {
 				setOutput('You have already completed this lesson')
 			}
 		} catch (error) {
