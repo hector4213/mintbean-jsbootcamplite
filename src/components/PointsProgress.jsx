@@ -1,10 +1,14 @@
 import React from 'react'
 import { CircularProgress, Box, Typography } from '@material-ui/core/'
 import { makeStyles } from '@material-ui/core/styles'
+import Trophy from '../assets/trophy.png'
 
 const useStyles = makeStyles((theme) => ({
 	container: {
 		marginTop: '10px',
+	},
+	trophy: {
+		width: '100px',
 	},
 }))
 
@@ -16,12 +20,16 @@ const PointsProgress = ({ userPoints }) => {
 			display='inline-flex'
 			className={classes.container}
 		>
-			<CircularProgress
-				size={100}
-				color='primary'
-				variant='determinate'
-				value={userPoints}
-			/>
+			{userPoints >= 100 ? (
+				<img className={classes.trophy} src={Trophy} alt='trophy' />
+			) : (
+				<CircularProgress
+					size={100}
+					color='primary'
+					variant='determinate'
+					value={userPoints}
+				/>
+			)}
 			<Box
 				top={0}
 				left={0}
@@ -35,7 +43,7 @@ const PointsProgress = ({ userPoints }) => {
 				<Typography
 					variant='caption'
 					component='div'
-					color='textSecondary'
+					color='primary'
 				>{`${Math.round(userPoints)}%`}</Typography>
 			</Box>
 		</Box>
