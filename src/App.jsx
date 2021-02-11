@@ -7,7 +7,6 @@ import Layout from './components/Layout'
 import HomePage from './HomePage'
 import VariableLesson from './lessons/VariableLesson'
 import FunctionsLesson from './lessons/FunctionsLesson'
-import ArraysLesson from './lessons/ArraysLesson'
 import { TextField } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
@@ -66,9 +65,6 @@ const App = () => {
 									userPoints={userPoints}
 									setUserPoints={setUserPoints}
 								/>
-							</Route>
-							<Route path='/Arrays'>
-								<ArraysLesson />
 							</Route>
 						</Layout>
 					</Switch>
