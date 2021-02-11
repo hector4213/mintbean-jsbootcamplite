@@ -4,10 +4,8 @@ import FunctionAction from './FunctionAction'
 import { Container } from '@material-ui/core'
 import Header from '../components/Header'
 
-const EXAMPLE = `// `
-
 const FunctionsLesson = ({ user, userPoints, setUserPoints }) => {
-	const [code, setCode] = useState()
+	const [code, setCode] = useState('')
 	const [output, setOutput] = useState('Im the output')
 	const [lesson, setLesson] = useState({
 		completed: false,
@@ -21,27 +19,26 @@ const FunctionsLesson = ({ user, userPoints, setUserPoints }) => {
 	const backToTheory = () => {
 		setLesson((lesson) => ({ ...lesson, lessonType: 'theory' }))
 	}
-	const completeLesson = () => {
-		if (!lesson.completed) {
-			setLesson((lesson) => ({ ...lesson, completed: true }))
-			setUserPoints((prevPoints) => prevPoints + 40)
-			setOutput('Correct!')
-		} else {
-			setOutput('You have already completed this lesson! Try another one')
-		}
-	}
-	const checkCodeAnswer = () => {
-		const userCode = `${code}`
 
+	const correctAnswer = () => {
+		let userCode = code
+		return eval(userCode) === user.split('').reverse().join('')
+	}
+
+	const checkCodeAnswer = () => {
 		try {
-			if (eval(userCode) === 'hello') {
+			if (!lesson.completed && correctAnswer()) {
 				setOutput('correct!')
-				//add points here
+				setLesson((lesson) => ({ ...lesson, completed: true }))
+				setUserPoints((prevPoints) => prevPoints + 40)
+			} else {
+				setOutput('You have already completed this lesson')
 			}
 		} catch (error) {
 			setOutput(error.name)
 		}
 	}
+
 	return (
 		<Container>
 			<Header variant={'h3'} align={'left'}>
