@@ -11,5 +11,9 @@ The goal of this hackathon was to create a lesson plan to help others learn abou
 ## Screenshots
 
  <p align="center">
- <img src='/readme/demo.gif' width='600px'>
+ <img src='/readme/demo.gif' width='700px'>
  </p>
+
+## Technologies used
+
+[<img src='https://img.icons8.com/color/344/javascript.png' height='100'>]() [<img src='https://cdn.iconscout.com/icon/free/png-256/react-3-1175109.png' height='100'>]() [<img src='https://img.icons8.com/color/344/material-ui.png' height='100'>]()
