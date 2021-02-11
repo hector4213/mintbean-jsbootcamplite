@@ -30,9 +30,10 @@ const VariableAction = ({
 		<Grid container className={classes.gridContainer} spacing={3}>
 			<Grid item xs={12} md={6} lg={6}>
 				<InfoText variant={'body1'} align={'left'}>
-					This shouldn't be too bad. I've provided some examples on the right.
-					In one line, create a variable "myName" and set it to the username you
-					entered in the App. Remember to declare the variable with let!
+					For our first task, I've provided some examples on the right just for
+					you. Your goal is to create a variable "myName" and set it to the
+					username you entered in the application. Remember to declare the
+					variable with let! This is worth 20% of your total progress.
 				</InfoText>
 			</Grid>
 			<Grid item xs={12} md={6} lg={6}>
