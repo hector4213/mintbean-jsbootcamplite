@@ -5,6 +5,7 @@ import Header from '../components/Header'
 import InfoText from '../components/InfoText'
 import BaseBtn from '../components/BaseBtn'
 import TextEditor from '../components/TextEditor'
+import FunctionNotes from '../components/FunctionNotes'
 
 const EXAMPLE = `function add(a, b) {
   return a + b
@@ -29,14 +30,12 @@ const FunctionTheory = ({ onClick }) => {
 				<Grid item xs={12} md={6} lg={6}>
 					<InfoText variant={'body1'} align={'left'}>
 						{' '}
-						JavaScript a function allows you to define a block of code, give it
-						a name and then execute it as many times as you want. A function can
-						be defined using function keyword and can be executed using ()
+						In JavaScript a function allows you to define a block of code, give
+						it a name and then execute it as many times as you want. A function
+						can be defined using function keyword and can be executed using ()
 						operator. A function can include one or more parameters. For our
 						next task, we will be creating a funky function that should output
-						your name. This might be tough for some but you can do it! I'll
-						provide some excellent tried and tested resources when you hit the
-						button below.
+						your name.
 					</InfoText>
 					<InfoText
 						className={classes.caption}
@@ -52,7 +51,10 @@ const FunctionTheory = ({ onClick }) => {
 						<TextEditor code={EXAMPLE} isReadOnly={'nocursor'} setCode={null} />
 					</Grid>
 				</Grid>
-				<Grid item xs={12}>
+				<Grid item xs={12} md={12} lg={6}>
+					<FunctionNotes />
+				</Grid>
+				<Grid item xs={12} md={12} lg={6}>
 					<BaseBtn text={'Try it out!'} onClick={onClick}></BaseBtn>
 				</Grid>
 			</Grid>
