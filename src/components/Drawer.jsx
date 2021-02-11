@@ -16,7 +16,6 @@ const menu = [
 	{ text: 'Home', icon: '', path: '/' },
 	{ text: 'Variables', icon: '', path: '/variables' },
 	{ text: 'Functions', icon: '', path: '/functions' },
-	{ text: 'Arrays', icon: '', path: '/arrays' },
 ]
 const useStyles = makeStyles((theme) => ({
 	root: {
