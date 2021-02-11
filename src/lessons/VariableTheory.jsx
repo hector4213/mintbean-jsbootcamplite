@@ -72,7 +72,7 @@ const VariableTheory = ({ onClick }) => {
 					/>
 				</Grid>
 				<Grid item xs={12}>
-					<BaseBtn text={'Try it out!'} onClick={onClick}></BaseBtn>
+					<BaseBtn text={'Knowledge Check'} onClick={onClick}></BaseBtn>
 				</Grid>
 			</Grid>
 		</>

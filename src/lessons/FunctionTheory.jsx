@@ -67,7 +67,7 @@ const FunctionTheory = ({ onClick }) => {
 					<FunctionNotes />
 				</Grid>
 				<Grid item xs={12} md={12} lg={6} className={classes.learnButtons}>
-					<BaseBtn text={'Try it out!'} onClick={onClick}></BaseBtn>
+					<BaseBtn text={'Knowledge Check'} onClick={onClick}></BaseBtn>
 					<Button
 						variant={'contained'}
 						component='a'
