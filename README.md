@@ -13,6 +13,13 @@ The goal of this hackathon was to create a lesson plan to help others learn abou
  <p align="center">
  <img src='/readme/demo.gif' width='700px'>
  </p>
+ 
+ ## Client-side Installation 
+
+    $ git clone https://github.com/hector4213/mintbean-jsbootcamplite.git
+    $ cd mintbean-jsbootcamplite
+    $ npm install
+    $ npm start
 
 ## Technologies used
 
