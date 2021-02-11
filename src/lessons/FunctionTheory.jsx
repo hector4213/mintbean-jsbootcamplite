@@ -1,5 +1,5 @@
 import React from 'react'
-import { Grid } from '@material-ui/core'
+import { Grid, Button } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles'
 import Header from '../components/Header'
 import InfoText from '../components/InfoText'
@@ -19,6 +19,11 @@ const useStyles = makeStyles((theme) => ({
 	gridContainer: {
 		flexGrow: 1,
 	},
+	learnButtons: {
+		display: 'flex',
+		alignItems: 'center',
+		justifyContent: 'space-around',
+	},
 }))
 
 const FunctionTheory = ({ onClick }) => {
@@ -26,7 +31,13 @@ const FunctionTheory = ({ onClick }) => {
 	return (
 		<>
 			<Header variant={'h6'}>What is an Function?</Header>
-			<Grid container className={classes.gridContainer} spacing={3}>
+			<Grid
+				container
+				className={classes.gridContainer}
+				spacing={3}
+				justify='center'
+				alignItems='center'
+			>
 				<Grid item xs={12} md={6} lg={6}>
 					<InfoText variant={'body1'} align={'left'}>
 						{' '}
@@ -37,6 +48,7 @@ const FunctionTheory = ({ onClick }) => {
 						next task, we will be creating a funky function that should output
 						your name.
 					</InfoText>
+					<br />
 					<InfoText
 						className={classes.caption}
 						variant={'caption'}
@@ -54,8 +66,16 @@ const FunctionTheory = ({ onClick }) => {
 				<Grid item xs={12} md={12} lg={6}>
 					<FunctionNotes />
 				</Grid>
-				<Grid item xs={12} md={12} lg={6}>
+				<Grid item xs={12} md={12} lg={6} className={classes.learnButtons}>
 					<BaseBtn text={'Try it out!'} onClick={onClick}></BaseBtn>
+					<Button
+						variant={'contained'}
+						component='a'
+						href='https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Functions'
+						target={'_blank'}
+					>
+						Learn More
+					</Button>
 				</Grid>
 			</Grid>
 		</>
