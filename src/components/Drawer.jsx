@@ -19,7 +19,7 @@ const menu = [
 ]
 const useStyles = makeStyles((theme) => ({
 	root: {
-		width: 200,
+		width: 180,
 	},
 	grow: {
 		flexGrow: 1,
@@ -31,7 +31,7 @@ const useStyles = makeStyles((theme) => ({
 		},
 	},
 	drawerPaper: {
-		width: 200,
+		width: 180,
 	},
 	drawerContainer: {
 		overflow: 'auto',
