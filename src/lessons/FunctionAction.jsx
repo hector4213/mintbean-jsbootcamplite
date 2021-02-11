@@ -1,5 +1,5 @@
-import React from 'react'
-import { Grid, Chip } from '@material-ui/core'
+import React, { useState } from 'react'
+import { Grid, Box, Menu, MenuItem } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core'
 import Header from '../components/Header'
 import BaseBtn from '../components/BaseBtn'
@@ -7,9 +7,23 @@ import InfoText from '../components/InfoText'
 import TextEditor from '../components/TextEditor'
 import ThumbUpIcon from '@material-ui/icons/ThumbUp'
 
-const EXAMPLE = `// Create a funky function that reverses your name, get stuck?
-// Check out some resources
-`
+const resources = [
+	{
+		name: 'String.prototype.split()',
+		url:
+			'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/split',
+	},
+	{
+		name: 'Array.prototype.reverse()',
+		url:
+			'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/reverse',
+	},
+	{
+		name: 'Array.prototype.join()',
+		url:
+			'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/join',
+	},
+]
 
 const useStyles = makeStyles((theme) => ({
 	gridContainer: {
@@ -23,7 +37,12 @@ const useStyles = makeStyles((theme) => ({
 		alignItems: 'center',
 		justifyContent: 'center',
 	},
-	thumb: {},
+	resources: {
+		display: 'flex',
+		flexDirection: 'column',
+		justifyContent: 'space-around',
+		alignItems: 'center',
+	},
 }))
 
 const FunctionAction = ({
@@ -34,24 +53,59 @@ const FunctionAction = ({
 	checkCodeAnswer,
 }) => {
 	const classes = useStyles()
+	const [anchorEl, setAnchorEl] = useState(null)
+	const handleClick = (event) => {
+		setAnchorEl(event.currentTarget)
+	}
+
+	const handleClose = () => {
+		setAnchorEl(null)
+	}
+
+	const makeResources = () =>
+		resources.map((resource) => (
+			<MenuItem
+				onClick={handleClose}
+				component='a'
+				href={resource.url}
+				target={'_blank'}
+			>
+				{resource.name}
+			</MenuItem>
+		))
+
 	return (
 		<>
-			<Header>Test your funk function knowledge</Header>
+			<Header variant={'h5'}>Test your funk function knowledge</Header>
 			<Grid container className={classes.gridContainer} spacing={3}>
 				<Grid item xs={12} md={6} lg={6}>
 					<InfoText variant={'body1'} align={'left'}>
-						We are going to get funky with functions, try and create a function
-						that turns your name backwards! (whoa). Remember the resource I
-						mentioned well{' '}
-						<span>
-							<a href='https://www.google.com'>here's</a>
-						</span>
-						the link! Dont get upset now, its what most developer use :) Oh yes!
-						Don't forget to call your function with parenthesis myFunction()!
+						For our funky function task we are going to try and create a
+						function that turns your name backwards! (whoa). So if my name is
+						"Tom" it should return as "moT", Oh yes! Don't forget to call your
+						function with parenthesis in order to invoke your function!
 					</InfoText>
 				</Grid>
 				<Grid item xs={12} md={6} lg={6}>
-					<TextEditor code={EXAMPLE} isReadOnly={'nocursor'} />
+					<Box className={classes.resources}>
+						<Header variant={'h6'} align={'center'}>
+							Need help?
+						</Header>
+						<BaseBtn
+							text={'See Resources'}
+							color={'primary'}
+							onClick={handleClick}
+						/>
+						<Menu
+							id='resources'
+							anchorEl={anchorEl}
+							keepMounted
+							open={Boolean(anchorEl)}
+							onClose={handleClose}
+						>
+							{makeResources()}
+						</Menu>
+					</Box>
 				</Grid>
 				<Grid item xs={12} md={6} lg={6}>
 					<TextEditor
@@ -63,6 +117,7 @@ const FunctionAction = ({
 				</Grid>
 				<Grid container item xs={12} md={6} lg={6}>
 					<Grid item xs={12} md={12} lg={12} className={classes.center}>
+						{output}
 						<ThumbUpIcon color='primary' fontSize='large' />
 					</Grid>
 					<Grid
