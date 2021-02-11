@@ -19,7 +19,7 @@ const PointsProgress = ({ userPoints }) => {
 			<CircularProgress
 				size={100}
 				color='primary'
-				variant='static'
+				variant='determinate'
 				value={userPoints}
 			/>
 			<Box
