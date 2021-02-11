@@ -14,7 +14,8 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 
 const useStyles = makeStyles((theme) => ({
 	root: {
-		width: '100vw',
+		width: '100%',
+		height: '100vh',
 	},
 	start: {
 		display: 'flex',
@@ -36,9 +37,13 @@ const App = () => {
 
 	const startApp = () => {
 		//TODO: validation for username
-		setStarted(true)
+		if (user.length < 1) {
+			return
+		} else {
+			setStarted(true)
+		}
 	}
-	//drawers will be the links that change the page in layout
+
 	if (started) {
 		return (
 			<Router>
