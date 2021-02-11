@@ -31,6 +31,18 @@ const HomePage = ({ user }) => {
 						wouldn’t have the dynamic content and usability we expect from
 						modern websites and applications.
 					</InfoText>
+					<InfoText variant={'body1'}>
+						Keep in mind, JavaScript != Java. Although they share similar names
+						(this was, unfortunately, considered a feature by JavaScript’s early
+						pioneers) that is where the similarities end. The creators of
+						JavaScript wanted to borrow concepts from other programming
+						languages, such as Java and C. Those of you with backgrounds in
+						other languages may see things that look very familiar, mainly the
+						use of classes and Object-Oriented Programming (OOP) architecture.
+						Keep in mind that JavaScript is not a true OOP language and many
+						things you may be familiar with from another language won’t work
+						with JavaScript.
+					</InfoText>
 				</Grid>
 				<Grid item xs={12} md={6} lg={6}>
 					<img src={HomeJs} alt='jslogoHome' />
