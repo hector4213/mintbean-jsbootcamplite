@@ -6,7 +6,7 @@
 
 ## About the project
 
-The goal of this hackathon was to create a lesson plan to help others learn about the basics of javascript, where they can code along. The project timeline was approximately 1 week in duration. Developer's were allowed to use any technology/framework of their choice. Overall it was a great experience! Check out the deployed version [here](https://learnsomejs.netlify.app) and dont forget to checkout [mintbean.io](https://www.mintbean.io) should you ever want to participate!
+The goal of this hackathon was to create a lesson plan to help others learn about the basics of javascript, where they can code along. This is a front-end only project, the project timeline was approximately 1 week in duration. Developer's were allowed to use any technology/framework of their choice. Overall it was a great experience! Check out the deployed version [here](https://learnsomejs.netlify.app) and dont forget to checkout [mintbean.io](https://www.mintbean.io) should you ever want to participate!
 
 ## Screenshots
 
