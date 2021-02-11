@@ -5,7 +5,6 @@ import Header from '../components/Header'
 import BaseBtn from '../components/BaseBtn'
 import InfoText from '../components/InfoText'
 import TextEditor from '../components/TextEditor'
-import ThumbUpIcon from '@material-ui/icons/ThumbUp'
 
 const resources = [
 	{
@@ -46,6 +45,7 @@ const useStyles = makeStyles((theme) => ({
 }))
 
 const FunctionAction = ({
+	user,
 	code,
 	setCode,
 	backToTheory,
@@ -76,11 +76,13 @@ const FunctionAction = ({
 
 	return (
 		<>
-			<Header variant={'h5'}>Test your funk function knowledge</Header>
+			<Header variant={'h6'} color={'primary'}>
+				Test your funky function knowledge
+			</Header>
 			<Grid container className={classes.gridContainer} spacing={3}>
 				<Grid item xs={12} md={6} lg={6}>
 					<InfoText variant={'body1'} align={'left'}>
-						For our funky function task we are going to try and create a
+						Ok,For our funky function task we are going to try and create a
 						function that turns your name backwards! (whoa). So if my name is
 						"Tom" it should return as "moT", Oh yes! Don't forget to call your
 						function with parenthesis in order to invoke your function!
@@ -118,7 +120,6 @@ const FunctionAction = ({
 				<Grid container item xs={12} md={6} lg={6}>
 					<Grid item xs={12} md={12} lg={12} className={classes.center}>
 						{output}
-						<ThumbUpIcon color='primary' fontSize='large' />
 					</Grid>
 					<Grid
 						container
