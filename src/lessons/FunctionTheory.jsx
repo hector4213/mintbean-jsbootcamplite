@@ -52,7 +52,7 @@ const FunctionTheory = ({ onClick }) => {
 					<InfoText
 						className={classes.caption}
 						variant={'caption'}
-						color={'secondary'}
+						color={'primary'}
 					>
 						This might be tough for some but you can do it! I'll provide some
 						excellent tried and testing resources when you hit the button below
