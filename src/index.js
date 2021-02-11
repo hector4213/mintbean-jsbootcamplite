@@ -13,7 +13,7 @@ const theme = createMuiTheme({
 		type: 'dark',
 	},
 	typography: {
-		fontFamily: ['Roboto', 'Open Sans'].join(','),
+		fontFamily: ['Fira Code', 'monospace'].join(','),
 	},
 })
 
